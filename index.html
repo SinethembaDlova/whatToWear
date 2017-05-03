@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>What to wear</title>
+    <link rel="stylesheet" href="whatToWear.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+  </head>
+
+  <body>
+    <script type="text/handlebars-x" id="wardrobeTemplate">
+    {{#each item}}
+      <div class="clothingDiv">
+        <img src="images/{{image}}" alt="You need to wear this item today">
+        <p>{{itemName}}</p>
+      </div>
+     {{/each}}
+    </script>
+
+
+    <div class="container">
+      <div class="nav">
+        <h1>What to Wear</h1>
+      </div>
+
+      <div class="weather">
+        <h3>Whats the weather today?</h3>
+        <input type="text" name="" value="°C" id="inputWeather">
+      </div>
+
+      <div class="clothesToWearDiv">
+
+      </div>
+
+    </div>
+    <script src="whatToWear.js" charset="utf-8"></script>
+  </body>
+</html>
