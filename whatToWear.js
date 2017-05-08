@@ -48,7 +48,7 @@ var wardrobe = [
   {
       image: 'chino.jpg',
       itemName: 'Chino',
-      key: 'Cool'
+      key: 'cold'
   },
   {
       image: 'coat.jpg',
@@ -85,28 +85,43 @@ var wardrobe = [
 ];
 
 var wardrobeTemplate = document.querySelector("#wardrobeTemplate").innerHTML;
-var wardrobeTemplateInstance = Handlebars.compile(wardrobeTemplate);
-var iziphumo = wardrobeTemplateInstance({
-    item: wardrobe
-});
-displayClothes.innerHTML += iziphumo;
 
-/*var whatToWear = function(weather) {
+var whatToWear = function() {
     var itemsForDay = [];
 
 
     for (var i = 0; i < wardrobe.length; i++) {
-        if (wardrobe[i].size === selectedSize) {
-            itemsForDay.push(wardrobe[i])
-        }
+
+    if(inputWeather.value > 20 && inputWeather.value <= 30)
+    {
+      if(wardrobe[i].key === 'sunny')
+      {
+        itemsForDay.push(wardrobe[i]);
+      }
+    }
+
+    if(inputWeather.value > 15 && inputWeather.value <= 20)
+    {
+      if(wardrobe[i].key === 'cold')
+      {
+        itemsForDay.push(wardrobe[i]);
+      }
+    }
 
     }
-    if (weather < 20) {
-        return itemsForDay;
-    }
 
-    else {
-        return return itemsForDay;
-    }
+    return itemsForDay;
 }
-*/
+
+whatToWear()
+
+
+var wardrobeTemplateInstance = Handlebars.compile(wardrobeTemplate);
+var iziphumo = wardrobeTemplateInstance({
+    item: whatToWear()
+});
+displayClothes.innerHTML += iziphumo;
+
+console.log(whatToWear());
+
+inputWeather.addEventListener('change', whatToWear)
