@@ -109,17 +109,18 @@ var whatToWear = function() {
         }
 
     }
+    //var storeFunc = whatToWear();
+    console.log('hello');
+    //console.log(storeFunc);
 
+    var iziphumo = wardrobeTemplateInstance({
+        item: itemsForTheDay
+    });
+    displayClothes.innerHTML = iziphumo;
     return itemsForTheDay;
 }
 
-var storeFunc = whatToWear();
 
-var iziphumo = wardrobeTemplateInstance({
-    item: whatToWear()
-});
-displayClothes.innerHTML += iziphumo;
 
-console.log(storeFunc);
 
 inputWeather.addEventListener('change', whatToWear)
